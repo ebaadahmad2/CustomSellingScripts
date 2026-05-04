@@ -22,6 +22,7 @@
   </style>
   <style>body { box-sizing: border-box; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://js.stripe.com/v3/"></script>
  </head>
  <body class="h-full bg-gray-950 text-white overflow-auto">
   <div class="w-full min-h-full" id="app-wrapper">
@@ -155,7 +156,7 @@
       </div>
       <div>
        <label for="discord" class="block text-sm font-semibold mb-1">Your Discord Username</label> <input type="text" id="discord" required placeholder="username#0000" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 transition">
-      </div><button id="payment-btn" class="w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold rounded-xl transition flex items-center justify-center gap-2"> <i data-lucide="credit-card" style="width:18px;height:18px"></i> Proceed to Payment — £3 </button>
+      </div><button id="payment-btn" class="w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold rounded-xl transition flex items-center justify-center gap-2"> <i data-lucide="credit-card" style="width:18px;height:18px"></i> Proceed to Payment — £3 </button> <button id="payment-completed-btn" class="hidden w-full py-4 bg-gray-800 hover:bg-gray-700 text-emerald-400 font-bold rounded-xl transition flex items-center justify-center gap-2"> <i data-lucide="check-circle" style="width:18px;height:18px"></i> I've Completed Payment </button>
       <p class="text-xs text-gray-500 text-center">You'll be taken to Stripe to complete payment securely.</p>
      </div><!-- Step 2: Script Details (Hidden until payment) -->
      <div id="step-2" class="hidden bg-gray-900 border border-gray-800 rounded-2xl p-8 space-y-5">
@@ -186,12 +187,14 @@
    </footer>
   </div>
   <script>
-    // ========== STRIPE PAYMENT & DISCORD WEBHOOK ==========
-    const WEBHOOK_URL = "YOUR_DISCORD_WEBHOOK_URL_HERE";
-    const STRIPE_PAYMENT_URL = "YOUR_STRIPE_PAYMENT_LINK_HERE"; // Paste your Stripe payment link here
+    // ========== STRIPE PAYMENT LINK & DISCORD WEBHOOK ==========
+    const WEBHOOK_URL = "https://discord.com/api/webhooks/1509/ECZmkdlTc3P6DXUm1BpkN31cpSe4Y-AA-Sz1Oq7NKgHDWW39f1omysY2QvANWuSTBHDq";
+    const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/4gM9AV71R01McH46QB1gs00";
     let discordUsername = "";
+    let gameInput = "";
+    let descriptionInput = "";
 
-    // Step 1: Send to Stripe
+    // Step 1: Payment button - Open Stripe link
     document.getElementById('payment-btn').addEventListener('click', (e) => {
       e.preventDefault();
       const discord = document.getElementById('discord').value.trim();
@@ -201,77 +204,54 @@
         return;
       }
 
-      if (STRIPE_PAYMENT_URL === "YOUR_STRIPE_PAYMENT_LINK_HERE") {
-        showError('Payment link not configured. Please contact support.');
-        return;
-      }
-
       discordUsername = discord;
 
-      // Open Stripe payment in new tab
-      window.open(STRIPE_PAYMENT_URL, '_blank');
+      // Open Stripe Payment Link in new tab
+      window.open(STRIPE_PAYMENT_LINK, '_blank');
 
-      // Show confirmation dialog
-      showPaymentPrompt();
-      lucide.createIcons();
+      // Show "I've completed payment" button
+      document.getElementById('payment-btn').classList.add('hidden');
+      document.getElementById('payment-completed-btn').classList.remove('hidden');
     });
 
-    // Payment confirmation dialog
-    function showPaymentPrompt() {
-      const backdrop = document.createElement('div');
-      backdrop.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-50';
-      backdrop.innerHTML = `
-        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8 max-w-sm mx-4">
-          <h3 class="text-xl font-bold mb-3">Payment Opened</h3>
-          <p class="text-gray-400 mb-6">The Stripe payment page has opened in a new tab. Complete your payment there (£3), then click below to proceed.</p>
-          <div class="space-y-3">
-            <button onclick="confirmPayment()" class="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold rounded-xl">I've Completed Payment</button>
-            <button onclick="this.closest('.fixed').remove()" class="w-full py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold rounded-xl">Cancel</button>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(backdrop);
-    }
-
-    function confirmPayment() {
-      const backdrop = document.querySelector('.fixed.inset-0');
-      if (backdrop) backdrop.remove();
-
-      // Switch to step 2
+    // Payment completed button - Move to step 2
+    document.getElementById('payment-completed-btn').addEventListener('click', () => {
       document.getElementById('step-1').classList.add('hidden');
       document.getElementById('step-2').classList.remove('hidden');
       lucide.createIcons();
-
-      // Scroll to form
       document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
-    }
+    });
 
-    // Back button
+    // Back button - Return to step 1
     document.getElementById('back-btn').addEventListener('click', () => {
       document.getElementById('step-2').classList.add('hidden');
       document.getElementById('step-1').classList.remove('hidden');
+      document.getElementById('payment-btn').classList.remove('hidden');
+      document.getElementById('payment-completed-btn').classList.add('hidden');
       discordUsername = "";
       document.getElementById('discord').value = "";
       lucide.createIcons();
     });
 
-    // Step 2: Submit script details
+    // Step 2: Submit script details to Discord
     document.getElementById('submit-btn').addEventListener('click', async (e) => {
       e.preventDefault();
       const btn = document.getElementById('submit-btn');
       btn.disabled = true;
-      btn.innerHTML = '<span class="animate-pulse">Sending...</span>';
+      btn.innerHTML = '<span class="animate-pulse">Submitting order...</span>';
 
-      const game = document.getElementById('game').value;
-      const description = document.getElementById('description').value;
+      const game = document.getElementById('game').value.trim();
+      const description = document.getElementById('description').value.trim();
 
       if (!game || !description) {
         showError('Please fill in all fields');
         btn.disabled = false;
         btn.innerHTML = '<i data-lucide="send" style="width:18px;height:18px"></i> Submit Script Details';
+        lucide.createIcons();
         return;
       }
 
+      // Discord webhook payload
       const payload = {
         embeds: [{
           title: "🎮 New Script Order (PAID)!",
@@ -280,45 +260,49 @@
             { name: "Discord", value: discordUsername, inline: true },
             { name: "Game", value: game, inline: true },
             { name: "Description", value: description },
-            { name: "Price", value: "£3 (PAID)", inline: true },
+            { name: "Status", value: "✅ PAID", inline: true },
             { name: "Time", value: new Date().toLocaleString(), inline: true }
           ],
-          footer: { text: "Roblox Scripts Store - Ready to Build" }
+          footer: { text: "Roblox Scripts Store - Order Complete" }
         }]
       };
 
       try {
-        if (WEBHOOK_URL !== "YOUR_DISCORD_WEBHOOK_URL_HERE") {
-          await fetch(WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
+        const response = await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          // Show success message
+          document.getElementById('step-2').classList.add('hidden');
+          document.getElementById('success-msg').classList.remove('hidden');
+          lucide.createIcons();
+
+          // Reload after 3 seconds
+          setTimeout(() => {
+            location.reload();
+          }, 3000);
+        } else {
+          throw new Error('Discord webhook failed');
         }
-
-        // Show success
-        document.getElementById('step-2').classList.add('hidden');
-        document.getElementById('success-msg').classList.remove('hidden');
-        lucide.createIcons();
-
-        // Reset form after 3 seconds
-        setTimeout(() => {
-          location.reload();
-        }, 3000);
       } catch (err) {
+        console.error('Submission error:', err);
         btn.disabled = false;
         btn.innerHTML = '<i data-lucide="send" style="width:18px;height:18px"></i> Submit Script Details';
+        lucide.createIcons();
         showError('Failed to submit order. Please try again.');
       }
     });
 
     function showError(message) {
       const errorDiv = document.createElement('div');
-      errorDiv.className = 'fixed top-4 right-4 bg-red-500/20 border border-red-500 text-red-400 px-4 py-3 rounded-xl';
+      errorDiv.className = 'fixed top-4 right-4 bg-red-500/20 border border-red-500 text-red-400 px-4 py-3 rounded-xl max-w-sm z-50';
       errorDiv.textContent = message;
       document.body.appendChild(errorDiv);
 
-      setTimeout(() => errorDiv.remove(), 3000);
+      setTimeout(() => errorDiv.remove(), 4000);
     }
 
     // ========== ELEMENT SDK ==========
@@ -350,4 +334,7 @@
           { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
           { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
           { get: () => config.primary_action || defaultConfig.primary_action, set: (v) => { config.primary_action = v; window.elementSdk.setConfig({ primary_action: v }); } },
-          { get: () => config.secondary_action || defaultConf
+          { get: () => config.secondary_action || defaultConfig.secondary_action, set: (v) => { config.secondary_action = v; window.elementSdk.setConfig({ secondary_action: v }); } }
+        ],
+        borderables: [],
+        fontEditable: { get: () => config.font_family || defaultConfig.fo
