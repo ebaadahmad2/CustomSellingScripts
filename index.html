@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Roblox Scripts</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Outfit', sans-serif; }
+    .glow { box-shadow: 0 0 30px rgba(0, 255, 136, 0.3); }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 0 40px rgba(0, 255, 136, 0.2); }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .float { animation: float 3s ease-in-out infinite; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .fade-in { animation: fadeIn 0.6s ease forwards; }
+    .fade-in-delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .fade-in-delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .fade-in-delay-3 { animation-delay: 0.3s; opacity: 0; }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-gray-950 text-white overflow-auto">
+  <div class="w-full min-h-full" id="app-wrapper">
+   <!-- Nav -->
+   <nav class="w-full border-b border-gray-800 px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+     <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center font-bold text-gray-950">
+      R
+     </div><span class="font-bold text-lg" id="nav-title">Best Roblox Scripts</span>
+    </div>
+    <div class="flex gap-6 text-sm text-gray-400">
+     <a href="#portfolio" class="hover:text-emerald-400 transition">Portfolio</a> <a href="#pricing" class="hover:text-emerald-400 transition">Pricing</a> <a href="#order" class="hover:text-emerald-400 transition">Order</a>
+    </div>
+   </nav><!-- Hero -->
+   <section class="w-full px-6 py-20 text-center">
+    <div class="max-w-3xl mx-auto fade-in">
+     <div class="inline-block px-4 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm mb-6">
+      ⚡ Same Day Delivery
+     </div>
+     <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight" id="hero-title">Best Roblox Scripts</h1>
+     <p class="text-xl text-gray-400 mb-8" id="hero-tagline">Custom made for you. Professional, undetected, and delivered the same day.</p><a href="#order" class="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold rounded-xl transition glow"> <i data-lucide="zap" style="width:20px;height:20px"></i> Order Now — £3 </a>
+    </div>
+   </section><!-- Features -->
+   <section class="w-full px-6 py-16">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+     <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover transition fade-in fade-in-delay-1">
+      <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="code-2" style="color:#10b981;width:24px;height:24px"></i>
+      </div>
+      <h3 class="font-bold text-lg mb-2">Custom Built</h3>
+      <p class="text-gray-400 text-sm">Every script is made from scratch to your exact specifications.</p>
+     </div>
+     <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover transition fade-in fade-in-delay-2">
+      <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="shield-check" style="color:#10b981;width:24px;height:24px"></i>
+      </div>
+      <h3 class="font-bold text-lg mb-2">Undetected</h3>
+      <p class="text-gray-400 text-sm">Built with anti-detection in mind. Stay safe while using.</p>
+     </div>
+     <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover transition fade-in fade-in-delay-3">
+      <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="clock" style="color:#10b981;width:24px;height:24px"></i>
+      </div>
+      <h3 class="font-bold text-lg mb-2">Same Day</h3>
+      <p class="text-gray-400 text-sm">Order today, receive today. Fast turnaround guaranteed.</p>
+     </div>
+    </div>
+   </section><!-- Portfolio -->
+   <section id="portfolio" class="w-full px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+     <h2 class="text-3xl font-bold text-center mb-10">Portfolio</h2>
+     <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover transition">
+       <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center"><i data-lucide="swords" style="color:#a855f7;width:20px;height:20px"></i>
+        </div>
+        <div>
+         <h4 class="font-bold">Auto-Farm Script</h4>
+         <p class="text-xs text-gray-500">Blox Fruits</p>
+        </div>
+       </div>
+       <p class="text-gray-400 text-sm">Automated farming with fruit collection, boss killing, and level progression.</p>
+       <div class="mt-3 flex gap-2"><span class="px-2 py-1 bg-gray-800 rounded text-xs text-gray-400">Auto-Farm</span><span class="px-2 py-1 bg-gray-800 rounded text-xs text-gray-400">Boss Kill</span>
+       </div>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover transition">
+       <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center"><i data-lucide="target" style="color:#3b82f6;width:20px;height:20px"></i>
+        </div>
+        <div>
+         <h4 class="font-bold">Aimbot + ESP</h4>
+         <p class="text-xs text-gray-500">Arsenal</p>
+        </div>
+       </div>
+       <p class="text-gray-400 text-sm">Smooth aimbot with configurable FOV, plus full ESP with health bars.</p>
+       <div class="mt-3 flex gap-2"><span class="px-2 py-1 bg-gray-800 rounded text-xs text-gray-400">Aimbot</span><span class="px-2 py-1 bg-gray-800 rounded text-xs text-gray-400">ESP</span>
+       </div>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover transition">
+       <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center"><i data-lucide="coins" style="color:#f59e0b;width:20px;height:20px"></i>
+        </div>
+        <div>
+         <h4 class="font-bold">Auto-Collect</h4>
+         <p class="text-xs text-gray-500">Pet Simulator X</p>
+        </div>
+       </div>
+       <p class="text-gray-400 text-sm">Auto hatch eggs, collect coins, and trade duplicates automatically.</p>
+       <div class="mt-3 flex gap-2"><span class="px-2 py-1 bg-gray-800 rounded text-xs text-gray-400">Auto-Hatch</span><span class="px-2 py-1 bg-gray-800 rounded text-xs text-gray-400">Trading</span>
+       </div>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover transition">
+       <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-lg bg-rose-500/20 flex items-center justify-center"><i data-lucide="ghost" style="color:#f43f5e;width:20px;height:20px"></i>
+        </div>
+        <div>
+         <h4 class="font-bold">God Mode + Teleport</h4>
+         <p class="text-xs text-gray-500">Murder Mystery 2</p>
+        </div>
+       </div>
+       <p class="text-gray-400 text-sm">Invincibility, speed hacks, and instant teleport to players.</p>
+       <div class="mt-3 flex gap-2"><span class="px-2 py-1 bg-gray-800 rounded text-xs text-gray-400">God Mode</span><span class="px-2 py-1 bg-gray-800 rounded text-xs text-gray-400">Teleport</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Pricing -->
+   <section id="pricing" class="w-full px-6 py-16">
+    <div class="max-w-md mx-auto text-center">
+     <h2 class="text-3xl font-bold mb-4">Simple Pricing</h2>
+     <div class="bg-gray-900 border-2 border-emerald-500 rounded-2xl p-8 glow">
+      <p class="text-emerald-400 font-semibold text-sm mb-2">ANY CUSTOM SCRIPT</p>
+      <div class="text-5xl font-extrabold mb-2">
+       £3
+      </div>
+      <p class="text-gray-400 mb-6">One-time payment • Same day delivery</p>
+      <ul class="text-left text-sm space-y-3 mb-8">
+       <li class="flex items-center gap-2 text-gray-300"><i data-lucide="check" style="width:16px;height:16px;color:#10b981"></i> Custom built to your needs</li>
+       <li class="flex items-center gap-2 text-gray-300"><i data-lucide="check" style="width:16px;height:16px;color:#10b981"></i> Same day delivery</li>
+       <li class="flex items-center gap-2 text-gray-300"><i data-lucide="check" style="width:16px;height:16px;color:#10b981"></i> Free revisions</li>
+       <li class="flex items-center gap-2 text-gray-300"><i data-lucide="check" style="width:16px;height:16px;color:#10b981"></i> Undetected methods</li>
+      </ul><a href="#order" class="block w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold rounded-xl transition text-center">Order Now</a>
+     </div>
+    </div>
+   </section><!-- Order Form -->
+   <section id="order" class="w-full px-6 py-16">
+    <div class="max-w-lg mx-auto">
+     <h2 class="text-3xl font-bold text-center mb-8">Place Your Order</h2><!-- Step 1: Discord + Payment -->
+     <div id="step-1" class="bg-gray-900 border border-gray-800 rounded-2xl p-8 space-y-5">
+      <div class="text-center mb-6">
+       <div class="inline-block px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+        Step 1 of 2
+       </div>
+      </div>
+      <div>
+       <label for="discord" class="block text-sm font-semibold mb-1">Your Discord Username</label> <input type="text" id="discord" required placeholder="username#0000" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 transition">
+      </div><button id="payment-btn" class="w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold rounded-xl transition flex items-center justify-center gap-2"> <i data-lucide="credit-card" style="width:18px;height:18px"></i> Proceed to Payment — £3 </button>
+      <p class="text-xs text-gray-500 text-center">You'll be taken to Stripe to complete payment securely.</p>
+     </div><!-- Step 2: Script Details (Hidden until payment) -->
+     <div id="step-2" class="hidden bg-gray-900 border border-gray-800 rounded-2xl p-8 space-y-5">
+      <div class="text-center mb-6">
+       <div class="flex items-center justify-center gap-2 mb-4"><i data-lucide="check-circle" style="width:24px;height:24px;color:#10b981"></i> <span class="text-emerald-400 font-semibold">Payment Confirmed!</span>
+       </div>
+       <div class="inline-block px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+        Step 2 of 2
+       </div>
+      </div>
+      <div>
+       <label for="game" class="block text-sm font-semibold mb-1">Roblox Game</label> <input type="text" id="game" required placeholder="e.g. Blox Fruits, Arsenal..." class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 transition">
+      </div>
+      <div>
+       <label for="description" class="block text-sm font-semibold mb-1">What do you need?</label> <textarea id="description" required rows="4" placeholder="Describe what the script should do..." class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 transition resize-none"></textarea>
+      </div><button id="submit-btn" class="w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold rounded-xl transition flex items-center justify-center gap-2"> <i data-lucide="send" style="width:18px;height:18px"></i> Submit Script Details </button> <button id="back-btn" class="w-full py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold rounded-xl transition">← Back</button>
+     </div><!-- Success message -->
+     <div id="success-msg" class="hidden bg-gray-900 border border-emerald-500 rounded-2xl p-8 text-center">
+      <div class="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4"><i data-lucide="check-circle" style="width:32px;height:32px;color:#10b981"></i>
+      </div>
+      <h3 class="text-xl font-bold mb-2">Order Complete!</h3>
+      <p class="text-gray-400">We've received your order and will start working on your script right away. Check your Discord for updates!</p>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="w-full px-6 py-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+    <p>© 2024 Best Roblox Scripts. All rights reserved.</p>
+   </footer>
+  </div>
+  <script>
+    // ========== STRIPE PAYMENT & DISCORD WEBHOOK ==========
+    const WEBHOOK_URL = "YOUR_DISCORD_WEBHOOK_URL_HERE";
+    const STRIPE_PAYMENT_URL = "YOUR_STRIPE_PAYMENT_LINK_HERE"; // Paste your Stripe payment link here
+    let discordUsername = "";
+
+    // Step 1: Send to Stripe
+    document.getElementById('payment-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      const discord = document.getElementById('discord').value.trim();
+
+      if (!discord) {
+        showError('Please enter your Discord username');
+        return;
+      }
+
+      if (STRIPE_PAYMENT_URL === "YOUR_STRIPE_PAYMENT_LINK_HERE") {
+        showError('Payment link not configured. Please contact support.');
+        return;
+      }
+
+      discordUsername = discord;
+
+      // Open Stripe payment in new tab
+      window.open(STRIPE_PAYMENT_URL, '_blank');
+
+      // Show confirmation dialog
+      showPaymentPrompt();
+      lucide.createIcons();
+    });
+
+    // Payment confirmation dialog
+    function showPaymentPrompt() {
+      const backdrop = document.createElement('div');
+      backdrop.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-50';
+      backdrop.innerHTML = `
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8 max-w-sm mx-4">
+          <h3 class="text-xl font-bold mb-3">Payment Opened</h3>
+          <p class="text-gray-400 mb-6">The Stripe payment page has opened in a new tab. Complete your payment there (£3), then click below to proceed.</p>
+          <div class="space-y-3">
+            <button onclick="confirmPayment()" class="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold rounded-xl">I've Completed Payment</button>
+            <button onclick="this.closest('.fixed').remove()" class="w-full py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold rounded-xl">Cancel</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(backdrop);
+    }
+
+    function confirmPayment() {
+      const backdrop = document.querySelector('.fixed.inset-0');
+      if (backdrop) backdrop.remove();
+
+      // Switch to step 2
+      document.getElementById('step-1').classList.add('hidden');
+      document.getElementById('step-2').classList.remove('hidden');
+      lucide.createIcons();
+
+      // Scroll to form
+      document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Back button
+    document.getElementById('back-btn').addEventListener('click', () => {
+      document.getElementById('step-2').classList.add('hidden');
+      document.getElementById('step-1').classList.remove('hidden');
+      discordUsername = "";
+      document.getElementById('discord').value = "";
+      lucide.createIcons();
+    });
+
+    // Step 2: Submit script details
+    document.getElementById('submit-btn').addEventListener('click', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="animate-pulse">Sending...</span>';
+
+      const game = document.getElementById('game').value;
+      const description = document.getElementById('description').value;
+
+      if (!game || !description) {
+        showError('Please fill in all fields');
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="send" style="width:18px;height:18px"></i> Submit Script Details';
+        return;
+      }
+
+      const payload = {
+        embeds: [{
+          title: "🎮 New Script Order (PAID)!",
+          color: 0x10b981,
+          fields: [
+            { name: "Discord", value: discordUsername, inline: true },
+            { name: "Game", value: game, inline: true },
+            { name: "Description", value: description },
+            { name: "Price", value: "£3 (PAID)", inline: true },
+            { name: "Time", value: new Date().toLocaleString(), inline: true }
+          ],
+          footer: { text: "Roblox Scripts Store - Ready to Build" }
+        }]
+      };
+
+      try {
+        if (WEBHOOK_URL !== "YOUR_DISCORD_WEBHOOK_URL_HERE") {
+          await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        }
+
+        // Show success
+        document.getElementById('step-2').classList.add('hidden');
+        document.getElementById('success-msg').classList.remove('hidden');
+        lucide.createIcons();
+
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          location.reload();
+        }, 3000);
+      } catch (err) {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="send" style="width:18px;height:18px"></i> Submit Script Details';
+        showError('Failed to submit order. Please try again.');
+      }
+    });
+
+    function showError(message) {
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'fixed top-4 right-4 bg-red-500/20 border border-red-500 text-red-400 px-4 py-3 rounded-xl';
+      errorDiv.textContent = message;
+      document.body.appendChild(errorDiv);
+
+      setTimeout(() => errorDiv.remove(), 3000);
+    }
+
+    // ========== ELEMENT SDK ==========
+    const defaultConfig = {
+      site_title: "Best Roblox Scripts",
+      tagline: "Custom made for you. Professional, undetected, and delivered the same day.",
+      background_color: "#030712",
+      surface_color: "#111827",
+      text_color: "#ffffff",
+      primary_action: "#10b981",
+      secondary_action: "#6b7280",
+      font_family: "Outfit",
+      font_size: 16
+    };
+
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (config) => {
+        const title = config.site_title || defaultConfig.site_title;
+        const tagline = config.tagline || defaultConfig.tagline;
+
+        document.getElementById('nav-title').textContent = title;
+        document.getElementById('hero-title').textContent = title;
+        document.getElementById('hero-tagline').textContent = tagline;
+      },
+      mapToCapabilities: (config) => ({
+        recolorables: [
+          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+          { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+          { get: () => config.primary_action || defaultConfig.primary_action, set: (v) => { config.primary_action = v; window.elementSdk.setConfig({ primary_action: v }); } },
+          { get: () => config.secondary_action || defaultConf
